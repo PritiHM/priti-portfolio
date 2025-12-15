@@ -3,46 +3,46 @@ import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
 
 const projects = [
   {
-    title: "Personal Portfolio",
-    image: "/images/portfolio.png",
-    description: "Responsive portfolio using React & Tailwind CSS.",
-    github: "https://github.com/yourname/portfolio",
-    live: "#",
+    title: "bussiness-Website",
+    image: "/bussiness.png",
+    description: "Created bussiness website for client",
+    github: "https://github.com/PritiHM/nexus-urja-solutions.git",
+    live: "https://nexusurjasolutions.com/",
   },
   {
-    title: "Amazon Clone",
-    image: "/images/amazon.png",
-    description: "Amazon UI clone using HTML, CSS and JavaScript.",
-    github: "#",
-    live: "#",
+    title: "Personal Portfolio",
+    image: "/portfolio.png",
+    description: "Responsive portfolio using React & Tailwind CSS.",
+    github: "https://github.com/PritiHM/priti-portfolio.git",
+    live: "https://priti-portfolio-eight.vercel.app/",
   },
   {
     title: "Student Management System",
-    image: "/images/sms.png",
+    image: "/sms.jpg",
     description: "Full stack app with React frontend and Java backend.",
-    github: "#",
+    github: "https://github.com/PritiHM/student-management-project.git",
     live: "#",
   },
   {
-    title: "Rock Paper Scissors Game",
-    image: "/images/rps.png",
+    title: "Tic-Tac-Toe-Game",
+    image: "/ttt.png",
     description: "JavaScript game with animations.",
-    github: "#",
-    live: "#",
+    github: "https://github.com/PritiHM/Tic-Tac-Toe-Game.git",
+    live: "https://tic-tac-toe-game-neon-six.vercel.app/",
   },
   {
-    title: "Weather App",
-    image: "/images/weather.png",
-    description: "Weather app using API.",
-    github: "#",
-    live: "#",
+    title: "Mishika solutions",
+    image: "/mishika.png",
+    description: "clone of website",
+    github: "https://github.com/PritiHM/mishika-solutions.git",
+    live: "https://mishika-solutions.vercel.app/",
   },
   {
-    title: "To-Do App",
-    image: "/images/todo.png",
-    description: "Task manager using React.",
-    github: "#",
-    live: "#",
+    title: "Vaachi website",
+    image: "/vaachi.png",
+    description: "frontend website for clint.",
+    github: "https://github.com/PritiHM/Vaachi-Website.git",
+    live: "https://vaachi-website.vercel.app/",
   },
 ];
 
@@ -65,16 +65,18 @@ const Portfolio = () => {
           {visibleProjects.map((project, index) => (
             <div
               key={index}
- className="relative group bg-[#111] rounded-2xl overflow-hidden shadow-lg min-h-[340px]"
+              className="relative group bg-[#111] rounded-2xl overflow-hidden shadow-lg"
             >
-              {/* Image */}
-              <img
-                src={project.image}
-                alt={project.title}
-                className="w-full h-48 object-cover group-hover:scale-110 transition duration-500"
-              />
+              {/* IMAGE — SAME SIZE FOR ALL (ONLY CHANGE) */}
+              <div className="w-full aspect-[16/9] overflow-hidden">
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="w-full h-full object-cover group-hover:scale-110 transition duration-500"
+                />
+              </div>
 
-              {/* Overlay Layer */}
+              {/* Overlay Layer (UNCHANGED) */}
               <div
                 className="
                   absolute inset-0
@@ -98,6 +100,7 @@ const Portfolio = () => {
                   <a
                     href={project.github}
                     target="_blank"
+                    rel="noreferrer"
                     className="hover:text-red-400 transition"
                   >
                     <FaGithub />
@@ -106,6 +109,7 @@ const Portfolio = () => {
                   <a
                     href={project.live}
                     target="_blank"
+                    rel="noreferrer"
                     className="hover:text-red-400 transition"
                   >
                     <FaExternalLinkAlt />
