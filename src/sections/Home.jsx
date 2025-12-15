@@ -45,7 +45,7 @@ const Home = () => {
                         h-[360px] sm:h-[420px] md:h-[520px]
                         overflow-hidden">
           <img
-            src="/src/assets/images/Untitled.png"
+            src="/Untitled.png"
             alt="Hero"
             className="w-full h-full object-cover object-top"
           />
