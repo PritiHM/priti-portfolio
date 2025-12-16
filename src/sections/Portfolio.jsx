@@ -13,7 +13,7 @@ const projects = [
     title: "Personal Portfolio",
     image: "/portfolio.png",
     description: "Responsive portfolio using React & Tailwind CSS.",
-    github: "https://github.com/PritiHM/priti-portfolio.git",
+    github: "#",
     live: "https://priti-portfolio-eight.vercel.app/",
   },
   {
@@ -41,7 +41,7 @@ const projects = [
     title: "Vaachi website",
     image: "/vaachi.png",
     description: "frontend website for clint.",
-    github: "https://github.com/PritiHM/Vaachi-Website.git",
+    github: "#",
     live: "https://vaachi-website.vercel.app/",
   },
 ];
