@@ -28,9 +28,7 @@ const Contact = () => {
     try {
       const res = await fetch("http://localhost:5000/contact", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
       });
 
@@ -39,10 +37,7 @@ const Contact = () => {
       if (data.success) {
         setSent(true);
         setFormData({ name: "", email: "", message: "" });
-
-        setTimeout(() => {
-          setSent(false);
-        }, 3000);
+        setTimeout(() => setSent(false), 3000);
       } else {
         alert("Failed to send message");
       }
@@ -76,20 +71,31 @@ const Contact = () => {
             </p>
 
             <div className="space-y-6">
-              <div className="flex items-center gap-4">
+
+              {/* Phone - clickable */}
+              <a
+                href="tel:+917420806320"
+                className="flex items-center gap-4 hover:text-red-500 transition"
+              >
                 <FaPhoneAlt className="text-red-500" />
                 <span>+91 7420806320</span>
-              </div>
+              </a>
 
-              <div className="flex items-center gap-4">
+              {/* Email - clickable */}
+              <a
+                href="mailto:pritimali2806@gmail.com"
+                className="flex items-center gap-4 hover:text-red-500 transition"
+              >
                 <FaEnvelope className="text-red-500" />
                 <span>pritimali2806@gmail.com</span>
-              </div>
+              </a>
 
+              {/* Location - NON clickable */}
               <div className="flex items-center gap-4">
                 <FaMapMarkerAlt className="text-red-500" />
                 <span>Pune, Maharashtra, India</span>
               </div>
+
             </div>
 
             <div className="flex gap-6 text-2xl">
@@ -155,9 +161,10 @@ const Contact = () => {
                 type="submit"
                 disabled={sent || loading}
                 className={`w-full py-3 rounded-lg font-medium transition
-                  ${sent
-                    ? "bg-green-500 cursor-not-allowed"
-                    : "bg-red-500 hover:bg-red-600"
+                  ${
+                    sent
+                      ? "bg-green-500 cursor-not-allowed"
+                      : "bg-red-500 hover:bg-red-600"
                   }`}
               >
                 {loading
