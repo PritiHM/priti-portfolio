@@ -15,6 +15,7 @@ const Contact = () => {
   });
 
   const [sent, setSent] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -22,26 +23,34 @@ const Contact = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
 
     try {
-      await fetch(
-        "https://script.google.com/macros/s/AKfycbzYl9L8b73O65elRHz4o3wO0FRyIsXdZxokAlW7wL2Ujkup5oUd-Nn9qcsq-Z0NXQtS_w/exec",
-        {
-          method: "POST",
-          body: JSON.stringify(formData),
-        }
-      );
+      const res = await fetch("http://localhost:5000/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
 
-      setSent(true);
-      setFormData({ name: "", email: "", message: "" });
+      const data = await res.json();
 
-      // Auto reset after 3 seconds
-      setTimeout(() => {
-        setSent(false);
-      }, 3000);
+      if (data.success) {
+        setSent(true);
+        setFormData({ name: "", email: "", message: "" });
 
+        setTimeout(() => {
+          setSent(false);
+        }, 3000);
+      } else {
+        alert("Failed to send message");
+      }
     } catch (error) {
       console.log("Form submit error:", error);
+      alert("Server error");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -144,14 +153,18 @@ const Contact = () => {
 
               <button
                 type="submit"
-                disabled={sent}
+                disabled={sent || loading}
                 className={`w-full py-3 rounded-lg font-medium transition
                   ${sent
                     ? "bg-green-500 cursor-not-allowed"
                     : "bg-red-500 hover:bg-red-600"
                   }`}
               >
-                {sent ? "Message Sent ✓" : "Send Message"}
+                {loading
+                  ? "Sending..."
+                  : sent
+                  ? "Message Sent ✓"
+                  : "Send Message"}
               </button>
 
             </form>
