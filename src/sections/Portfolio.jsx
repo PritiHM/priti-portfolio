@@ -4,14 +4,14 @@ import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
 const projects = [
   {
     title: "bussiness-Website",
-    image: "/bussiness.png",
+    image: "/bussiness.jpg",
     description: "Created bussiness website for client",
     github: "https://github.com/PritiHM/nexus-urja-solutions.git",
     live: "https://nexusurjasolutions.com/",
   },
   {
     title: "Personal Portfolio",
-    image: "/portfolio.png",
+    image: "/portfolio.jpg",
     description: "Responsive portfolio using React & Tailwind CSS.",
     github: "#",
     live: "https://priti-portfolio-eight.vercel.app/",
