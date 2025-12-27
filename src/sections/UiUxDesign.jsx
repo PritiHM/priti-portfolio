@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const UiUxDesign = () => {
   return (
     <section className="w-full bg-[#080808] text-white py-20">
@@ -51,12 +53,12 @@ const UiUxDesign = () => {
           <h2 className="text-3xl font-bold mb-4">
             Need better <span className="text-red-500">User Experience?</span>
           </h2>
-          <a
-            href="/contact"
-            className="inline-block px-8 py-3 bg-red-500 rounded-full hover:bg-red-600 transition"
-          >
-            Contact Me
-          </a>
+         <Link
+  to="/#contact"
+  className="inline-block px-8 py-3 bg-red-500 rounded-full hover:bg-red-600 transition"
+>
+  Contact Me
+</Link>
         </div>
 
       </div>
