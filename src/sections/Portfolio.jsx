@@ -43,8 +43,9 @@ const projects = [
     description: "frontend website for clint.",
     github: "#",
     live: "https://vaachi-website.vercel.app/",
-  },
+  }
 ];
+
 
 const Portfolio = () => {
   const [showAll, setShowAll] = useState(false);
@@ -56,9 +57,9 @@ const Portfolio = () => {
       <div className="max-w-7xl mx-auto px-8">
 
         {/* Heading */}
-        <h2 className="text-4xl font-bold text-center mb-14">
+        <h1 className="text-4xl font-bold text-center mb-14">
           My <span className="text-red-500">Projects</span>
-        </h2>
+        </h1>
 
         {/* Projects Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">

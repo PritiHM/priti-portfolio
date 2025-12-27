@@ -17,9 +17,9 @@ const About = () => {
 
         <div className="md:w-1/2 w-full">
 
-          <h2 className="text-4xl font-bold mb-6">
+          <h1 className="text-4xl md:text-5xl font-bold mb-6">
             About <span className="text-red-500">Me</span>
-          </h2>
+          </h1>
 
           <p className= "text-xl text-gray-300 leading-relaxed mb-8">
             I’m <span className="text-white font-semibold">Priti Mahajan</span>, 

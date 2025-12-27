@@ -12,9 +12,9 @@ const Home = () => {
       >
         {/* LEFT CONTENT */}
         <div className="w-full md:w-1/2 mt-16 md:mt-0">
-          <h2 className="text-3xl md:text-5xl font-bold mb-4 typing-oneline">
+          <h1 className="text-3xl md:text-5xl font-bold mb-4 typing-oneline">
             Hi, I’m Priti Mahajan
-          </h2>
+          </h1>
 
           <p className="text-base md:text-xl font-bold mb-8 text-gray-300">
             Connecting frontend creativity with backend logic to build complete web experiences.
