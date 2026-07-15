@@ -8,7 +8,7 @@ const Contact = () => {
     subject: "",
     message: ""
   });
-  const [status, setStatus] = useState("idle"); // idle | loading | success
+  const [status, setStatus] = useState("idle"); // idle | loading | success | error
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -20,14 +20,26 @@ const Contact = () => {
     
     setStatus("loading");
     
-    // Simulating premium network request transition & success animation
+    // Simulate a brief premium UI layout transition state before opening tab
     setTimeout(() => {
+      const phoneNumber = "917420806320";
+      const subjectText = formData.subject.trim() ? formData.subject : "No Subject Provided";
+      
+      // Construct dynamic message body with precise formatting string literals
+      const messageText = `📩 New Portfolio Contact\n👤 Name: ${formData.name}\n📧 Email: ${formData.email}\n📌 Subject: ${subjectText}\n💬 Message:\n${formData.message}`;
+      
+      const whatsappUrl = `https://wa.me/${7420806320}?text=${encodeURIComponent(messageText)}`;
+      
+      // Open communication target link in secondary active window hook
+      window.open(whatsappUrl, "_blank");
+
+      // Set successful pipeline state flags & clean tracking variables
       setStatus("success");
       setFormData({ name: "", email: "", subject: "", message: "" });
       
-      // Reset back to idle state after notice duration
+      // Reset back to idle state after premium notice visibility window duration
       setTimeout(() => setStatus("idle"), 4000);
-    }, 1800);
+    }, 1000);
   };
 
   return (
@@ -37,7 +49,7 @@ const Contact = () => {
     >
       {/* ==========================================
           DYNAMIC FLOATING BACKGROUND AESTHETICS
-         ========================================== */}
+          ========================================== */}
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
         {/* Large Floating Blurred Ambient Orbs */}
         <div className="absolute -bottom-20 -left-20 w-[450px] h-[450px] bg-[#2563EB]/6 rounded-full blur-[120px] animate-pulse duration-[9000ms]" />
@@ -51,7 +63,7 @@ const Contact = () => {
         
         {/* ==========================================
             LEFT SIDE (5 COLUMNS): METADATA DECK
-           ========================================== */}
+            ========================================== */}
         <div className="lg:col-span-5 space-y-8 lg:sticky lg:top-24">
           <div className="space-y-4">
             <span className="text-xs uppercase tracking-widest font-bold text-[#2563EB] bg-blue-50 px-3 py-1 rounded-full border border-blue-100 inline-block">
@@ -136,7 +148,7 @@ const Contact = () => {
 
         {/* ==========================================
             RIGHT SIDE (7 COLUMNS): PREMIUM CONTACT FORM
-           ========================================== */}
+            ========================================== */}
         <div className="lg:col-span-7">
           <div className="w-full bg-white/40 backdrop-blur-md border border-white/80 rounded-3xl p-6 sm:p-8 shadow-xl shadow-blue-900/5 relative overflow-hidden">
             <div className="absolute inset-x-0 top-0 h-[3px] bg-gradient-to-r from-[#2563EB] via-[#3B82F6] to-[#00C2FF]" />
@@ -208,14 +220,16 @@ const Contact = () => {
                 />
               </div>
 
-              {/* High-Fidelity Button with Embedded Loading/Success feedback loops */}
+              {/* High-Fidelity Button with Embedded Loading/Success/Error feedback loops */}
               <div className="pt-2">
                 <button
                   type="submit"
-                  disabled={status !== "idle"}
+                  disabled={status === "loading" || status === "success"}
                   className={`w-full font-bold text-sm text-white px-6 py-3.5 rounded-xl transition-all duration-300 flex items-center justify-center gap-2 tracking-wide shadow-md ${
                     status === "success" 
                       ? "bg-emerald-600 shadow-emerald-100" 
+                      : status === "error"
+                      ? "bg-rose-600 shadow-rose-100"
                       : "bg-gradient-to-r from-[#2563EB] via-[#3B82F6] to-[#00C2FF] hover:opacity-95 shadow-blue-100 active:scale-[0.99]"
                   } disabled:cursor-not-allowed`}
                 >
@@ -244,6 +258,15 @@ const Contact = () => {
                         <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                       </svg>
                       <span>Message Transmitted Successfully!</span>
+                    </>
+                  )}
+
+                  {status === "error" && (
+                    <>
+                      <svg className="w-5 h-5 text-white animate-pulse" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                      </svg>
+                      <span>Transmission Failed. Try Again.</span>
                     </>
                   )}
                 </button>
