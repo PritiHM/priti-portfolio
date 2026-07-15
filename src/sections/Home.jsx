@@ -2,59 +2,170 @@ import React from "react";
 
 const Home = () => {
   return (
-    <section id="home" className="bg-[#080808] text-white">
-      
-      {/* 7xl WRAPPER */}
-      <div
-        className="max-w-7xl mx-auto px-6 md:px-8
-                   flex flex-col md:flex-row items-center
-                   min-h-[calc(100vh-96px)]"
-      >
-        {/* LEFT CONTENT */}
-        <div className="w-full md:w-1/2 mt-16 md:mt-0">
-          <h1 className="text-3xl md:text-5xl font-bold mb-4 typing-oneline">
-            Hi, I’m Priti Mahajan
-          </h1>
+    <section 
+      id="home" 
+      className="relative min-h-[calc(100vh-80px)] w-full overflow-hidden flex items-center bg-gradient-to-tr from-[#F8FBFF] to-[#EAF6FF] text-[#111827] font-sans selection:bg-[#22D3EE]/30"
+    >
+      {/* ==========================================
+          BACKGROUND AESTHETICS (FLOATING ELEMENTS)
+         ========================================== */}
+      <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
+        {/* Glowing Blurred Ambient Circles */}
+        <div className="absolute top-1/4 left-1/4 w-[400px] h-[400px] bg-[#00C2FF]/10 rounded-full blur-[100px] animate-pulse duration-7000" />
+        <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-[#3B82F6]/10 rounded-full blur-[120px] animate-pulse duration-10000" />
+        
+        {/* Tech Grid Pattern Subtle Overlay */}
+        <div className="absolute inset-0 opacity-[0.03] bg-[linear-gradient(to_right,#808080_1px,transparent_1px),linear-gradient(to_bottom,#808080_1px,transparent_1px)] bg-[size:32px_32px]" />
+      </div>
 
-          <p className="text-base md:text-xl font-bold mb-8 text-gray-300">
-            Connecting frontend creativity with backend logic to build complete web experiences.
+      {/* ==========================================
+          MAIN WRAPPER & CONTAINER
+         ========================================== */}
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 sm:px-8 py-12 lg:py-20 flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-8">
+        
+        {/* ------------------------------------------
+            LEFT CONTENT (45%)
+           ------------------------------------------ */}
+        <div className="w-full lg:w-[45%] flex flex-col items-center lg:items-start text-center lg:text-left space-y-6">
+          
+          {/* Circular Professional Profile Frame */}
+          <div className="relative group p-1.5 rounded-full bg-white shadow-xl shadow-blue-100/40 border border-blue-50/80 transition-all duration-500 hover:scale-105 animate-[float_6s_ease-in-out_infinite]">
+            <div className="relative w-28 h-28 sm:w-32 sm:h-32 rounded-full overflow-hidden border-2 border-[#00C2FF]">
+              {/* Point this directly to your asset folder path (e.g., inside public/) */}
+              <img 
+                src="/priti-profile.jpg" 
+                alt="Priti Harshal Mahajan"
+                className="w-full h-full object-cover object-center"
+                loading="eager"
+              />
+            </div>
+            {/* Soft decorative light indicator */}
+            <span className="absolute bottom-1 right-3 flex h-4 w-4">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#22D3EE] opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-4 w-4 bg-[#00C2FF]"></span>
+            </span>
+          </div>
+
+          {/* Greeting & Headline */}
+          <div className="space-y-2">
+            <span className="text-xs uppercase tracking-widest font-bold text-[#3B82F6] bg-blue-50 px-3 py-1 rounded-full border border-blue-100">
+              Welcome to my space
+            </span>
+            <h1 className="text-4xl sm:text-5xl lg:text-5xl xl:text-6xl font-extrabold tracking-tight text-[#111827]">
+              Hi, I'm <span className="bg-gradient-to-r from-[#3B82F6] via-[#00C2FF] to-[#22D3EE] bg-clip-text text-transparent">Priti  Mahajan</span>
+            </h1>
+          </div>
+
+          {/* Subtitle */}
+          <h2 className="text-xl sm:text-2xl font-semibold text-[#3B82F6] tracking-wide">
+            Aspiring Data Scientist
+          </h2>
+
+          {/* Tech Stack Pills */}
+          <div className="flex flex-wrap justify-center lg:justify-start gap-2 max-w-md">
+            {["Python", "Machine Learning", "SQL", "Power BI", "Data Analytics"].map((tech) => (
+              <span 
+                key={tech} 
+                className="text-xs font-semibold px-3 py-1 rounded-md bg-white/60 backdrop-blur-sm border border-blue-100/80 text-[#6B7280] shadow-sm transition-all duration-300 hover:border-[#00C2FF]/40 hover:text-[#111827]"
+              >
+                {tech}
+              </span>
+            ))}
+          </div>
+
+          {/* Concise Business Action Intro Paragraph */}
+          <p className="text-base text-[#6B7280] leading-relaxed max-w-lg">
+            I build intelligent data-driven solutions using Machine Learning, Python, SQL, Power BI, and Data Analytics to solve real-world business problems.
           </p>
 
-          {/* BUTTONS */}
-          <div className="flex flex-col sm:flex-row gap-4 sm:gap-6">
+          {/* Action Call buttons */}
+          <div className="w-full sm:w-auto flex flex-col sm:flex-row items-center gap-4 pt-2">
             <a
-              href="/PritiMahajanResume.pdf"
+              href="\PRITI MAHAJAN-resume26.pdf"
               download
-              className="inline-block text-center px-8 py-3 bg-red-500 rounded-lg font-medium
-                         hover:bg-red-600 transition"
+              className="w-full sm:w-auto px-8 py-3.5 bg-gradient-to-r from-[#3B82F6] to-[#00C2FF] text-white text-center font-medium rounded-xl shadow-lg shadow-blue-400/20 transform transition-all duration-300 hover:scale-[1.03] hover:shadow-xl hover:shadow-blue-400/30 focus:outline-none focus:ring-2 focus:ring-[#00C2FF]/50"
             >
-              Download CV
+              Download Resume
             </a>
 
             <a
-              href="#contact"
-              className="inline-block text-center px-8 py-3 border border-red-500 rounded-lg
-                         hover:bg-red-500 transition"
+              href="#projects"
+              className="w-full sm:w-auto px-8 py-3.5 bg-white text-[#111827] text-center font-medium rounded-xl border border-blue-100 shadow-sm backdrop-blur-sm transform transition-all duration-300 hover:scale-[1.03] hover:bg-gray-50 hover:border-blue-200 focus:outline-none focus:ring-2 focus:ring-gray-200"
             >
-              Contact Me
+              View Projects
             </a>
+          </div>
+
+        </div>
+
+        {/* ------------------------------------------
+            RIGHT CONTENT - HERO ILLUSTRATION (55%)
+           ------------------------------------------ */}
+        <div className="w-full lg:w-[55%] flex items-center justify-center relative min-h-[380px] sm:min-h-[480px]">
+          
+          {/* Central Cosmic Matrix Mesh Area Container */}
+          <div className="relative w-full max-w-[480px] aspect-square flex items-center justify-center">
+            
+            {/* Core Animated Dashboard Interface Mock (Glassmorphism Center) */}
+            <div className="absolute w-[80%] h-[70%] bg-white/40 backdrop-blur-md rounded-3xl border border-white/60 shadow-2xl shadow-blue-900/5 p-6 flex flex-col justify-between transition-all duration-500 hover:shadow-3xl hover:bg-white/50">
+              <div className="flex items-center justify-between border-b border-gray-100 pb-3">
+                <div className="flex space-x-1.5">
+                  <span className="w-3 h-3 rounded-full bg-red-400/80" />
+                  <span className="w-3 h-3 rounded-full bg-yellow-400/80" />
+                  <span className="w-3 h-3 rounded-full bg-green-400/80" />
+                </div>
+                <span className="text-[10px] font-mono tracking-wider text-gray-400 bg-gray-50 px-2 py-0.5 rounded border border-gray-100">MODEL_TRAINING.py</span>
+              </div>
+              
+              {/* Minimalist Data Visual Line Representation Component */}
+              <div className="flex-1 flex items-end space-x-2 pt-6 pb-2 px-1">
+                {[40, 65, 45, 85, 55, 95, 70, 100].map((height, index) => (
+                  <div key={index} className="flex-1 flex flex-col items-center gap-1.5 h-full justify-end">
+                    <div 
+                      style={{ height: `${height}%` }}
+                      className="w-full bg-gradient-to-t from-[#3B82F6] to-[#22D3EE] rounded-t-sm transition-all duration-1000 origin-bottom scale-y-100"
+                    />
+                  </div>
+                ))}
+              </div>
+
+              {/* Status Row */}
+              <div className="flex justify-between items-center bg-white/70 backdrop-blur-sm rounded-xl p-3 border border-blue-50 shadow-sm">
+                <div className="flex items-center gap-2">
+                  <div className="w-2 h-2 rounded-full bg-emerald-500 animate-ping"/>
+                  <span className="text-xs font-medium text-[#111827]">Accuracy Rate</span>
+                </div>
+                <span className="text-xs font-bold font-mono text-[#3B82F6]">98.42%</span>
+              </div>
+            </div>
+
+            {/* Orbiting Tech Node 1: Python */}
+            <div className="absolute top-4 left-6 bg-white p-3 rounded-2xl shadow-md border border-blue-50 flex items-center gap-2 animate-[float_5s_ease-in-out_infinite_1s]">
+              <span className="text-sm font-bold text-gray-700">Python</span>
+              <div className="w-5 h-5 bg-[#3B82F6]/10 text-[#3B82F6] text-xs font-bold rounded-md flex items-center justify-center">Py</div>
+            </div>
+
+            {/* Orbiting Tech Node 2: Database / SQL */}
+            <div className="absolute bottom-6 left-2 bg-white p-3 rounded-2xl shadow-md border border-blue-50 flex items-center gap-2 animate-[float_4.5s_ease-in-out_infinite_2s]">
+              <div className="w-5 h-5 bg-[#22D3EE]/10 text-[#22D3EE] text-xs font-bold rounded-md flex items-center justify-center">SQL</div>
+              <span className="text-sm font-medium text-gray-700">PostgreSQL</span>
+            </div>
+
+            {/* Orbiting Tech Node 3: Power BI */}
+            <div className="absolute top-12 right-2 bg-white p-3 rounded-2xl shadow-md border border-blue-50 flex items-center gap-2 animate-[float_6.5s_ease-in-out_infinite_0.5s]">
+              <div className="w-5 h-5 bg-amber-500/10 text-amber-600 text-xs font-bold rounded-md flex items-center justify-center">📊</div>
+              <span className="text-sm font-medium text-gray-700">Power BI</span>
+            </div>
+
+            {/* Orbiting Tech Node 4: Neural Network Node */}
+            <div className="absolute bottom-12 right-8 bg-white p-3 rounded-2xl shadow-md border border-blue-50 flex items-center gap-2 animate-[float_5.5s_ease-in-out_infinite_1.5s]">
+              <span className="w-2 h-2 rounded-full bg-[#00C2FF]" />
+              <span className="text-xs font-semibold font-mono text-[#111827]">ML Algorithms</span>
+            </div>
+
           </div>
         </div>
 
-        {/* RIGHT IMAGE */}
-        <div className="w-full md:w-1/2 md:sticky md:top-14 mt-14 md:mt-0 flex justify-center md:justify-end">
-          <div
-            className="w-full max-w-md sm:max-w-lg md:max-w-2xl
-                       h-[360px] sm:h-[420px] md:h-[520px]
-                       overflow-hidden"
-          >
-            <img
-              src="/Untitled.png"
-              alt="Hero"
-              className="w-full h-full object-cover object-top"
-            />
-          </div>
-        </div>
       </div>
     </section>
   );
