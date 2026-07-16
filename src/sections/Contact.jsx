@@ -112,7 +112,13 @@ const Contact = () => {
               <div className="text-xl mb-2 group-hover:scale-110 transition-transform duration-300">💼</div>
               <h4 className="text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">Open To</h4>
               <div className="flex flex-wrap gap-1.5">
-                {["Data Science Roles", "Data Analyst Roles", "Machine Learning Projects", "Frontend Development"].map((role) => (
+                {[
+  "Data Scientist",
+  "Data Analyst",
+  "Machine Learning Engineer",
+  "Generative AI Engineer",
+  "MLOps Engineer"
+].map((role) => (
                   <span key={role} className="text-[10px] sm:text-xs font-semibold px-2.5 py-1 bg-white border border-gray-100 rounded-lg text-gray-600 shadow-sm">
                     • {role}
                   </span>

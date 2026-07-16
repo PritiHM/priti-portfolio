@@ -3,11 +3,11 @@ import React from "react";
 const About = () => {
   // Configured categorized skills with specific design accents to match the Home section
   const skillCategories = [
-    {
-      title: "Data Science & ML",
-      accent: "text-[#3B82F6]",
-      skills: ["SQL", "Machine Learning", "Power BI", "Pandas", "NumPy", "Scikit-learn", "Matplotlib", "Seaborn", "EDA", "Feature Engineering"]
-    },
+   {
+  title: "Data Science, AI & MLOps",
+  accent: "text-[#3B82F6]",
+  skills: ["Python","SQL","Machine Learning","Deep Learning","Generative AI","Prompt Engineering","MLOps","Scikit-learn","Pandas","NumPy","Matplotlib", "Seaborn","EDA","Feature Engineering","Power BI"]
+},
     {
       title: "Programming",
       accent: "text-[#00C2FF]",
@@ -21,7 +21,7 @@ const About = () => {
     {
       title: "Tools & Environments",
       accent: "text-slate-500",
-      skills: ["Git", "GitHub", "VS Code", "Jupyter Notebook", "Google Colab", "Anaconda", "Excel", "Power BI Desktop", "Postman"]
+      skills: ["Git","GitHub","VS Code","Jupyter Notebook","Google Colab","Anaconda","MLflow","Postman","Excel","Power BI Desktop"]   
     }
   ];
 
@@ -67,8 +67,8 @@ const About = () => {
             { title: "Data Analysis", desc: "Extracting complex statistical insights, cleaning data tables, and generating actionable growth metrics.", icon: "📊", border: "hover:border-[#00C2FF]/30" },
             { title: "Machine Learning", desc: "Developing supervised and unsupervised algorithms to classify datasets and predict trends.", icon: "🤖", border: "hover:border-[#3B82F6]/30" },
             { title: "Power BI", desc: "Designing premium, interactive business intelligence dashboards for clear analytical overview.", icon: "📈", border: "hover:border-amber-400/30" },
-            { title: "Frontend Development", desc: "Engineering high-fidelity layouts and fully custom responsive interfaces using React and Tailwind CSS.", icon: "💻", border: "hover:border-[#22D3EE]/30" }
-          ].map((card, idx) => (
+            { title: "Frontend Development", desc: "Engineering high-fidelity layouts and fully custom responsive interfaces using React and Tailwind CSS.", icon: "💻", border: "hover:border-[#22D3EE]/30" },
+ ].map((card, idx) => (
             <div 
               key={idx}
               className={`group p-6 rounded-3xl bg-white/40 backdrop-blur-md border border-white/80 shadow-lg shadow-blue-900/5 flex flex-col justify-between transition-all duration-300 hover:scale-[1.03] hover:bg-white/50 ${card.border}`}
